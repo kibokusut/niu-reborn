@@ -70,4 +70,48 @@ export const Dummy = [
   {
     nama: "tes",
   },
+  ,
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  ,
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
+  {
+    nama: "tes",
+  },
 ];

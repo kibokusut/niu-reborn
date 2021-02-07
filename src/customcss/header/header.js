@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrap = styled.header`
+  z-index: 2;
   background-color: #292961;
   min-height: 45px;
   height: 45px;

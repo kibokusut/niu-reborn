@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 #root{
-  height:100%;
+  /* height:100%; */
 }
 ul{
   list-style:none;

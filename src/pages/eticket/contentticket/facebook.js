@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Dummy } from "../../../data/listmenu";
+import { HiOutlineTicket } from "react-icons/hi";
 
 const Facebook = ({ activeTab }) => {
-  const [cardActive, setCardactive] = useState(0);
+  const [cardActive, setCardactive] = useState(1);
   if (activeTab !== 1) {
     return null;
   }
@@ -18,20 +19,25 @@ const Facebook = ({ activeTab }) => {
               display: "flex",
               width: "100%",
               // background: "pink",
-              justifyContent: "space-around",
-              height: 40,
+              // justifyContent: "space-around",
+              height: 35,
             }}
           >
             <li
               onClick={() => setCardactive(1)}
               style={{
-                width: "16.6%",
-                borderBottom: "4px solid red",
-                height: "100%",
+                // width: "16.6%",
+                // borderBottom: "4px solid red",
+                // height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
+                borderRadius: 16,
+                border: "1px solid grey",
+                padding: "0 15px 0 15px",
+                marginRight: 8,
+                fontSize: 13,
               }}
             >
               New
@@ -39,12 +45,17 @@ const Facebook = ({ activeTab }) => {
             <li
               onClick={() => setCardactive(2)}
               style={{
-                width: "16.6%",
-                height: "100%",
+                // width: "16.6%",
+                // height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
+                borderRadius: 16,
+                border: "1px solid grey",
+                padding: "0 15px 0 15px",
+                marginRight: 8,
+                fontSize: 13,
               }}
             >
               Open
@@ -52,12 +63,17 @@ const Facebook = ({ activeTab }) => {
             <li
               onClick={() => setCardactive(3)}
               style={{
-                width: "16.6%",
-                height: "100%",
+                // width: "16.6%",
+                // height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
+                borderRadius: 16,
+                border: "1px solid grey",
+                padding: "0 15px 0 15px",
+                marginRight: 8,
+                fontSize: 13,
               }}
             >
               Progress
@@ -65,12 +81,17 @@ const Facebook = ({ activeTab }) => {
             <li
               onClick={() => setCardactive(4)}
               style={{
-                width: "16.6%",
-                height: "100%",
+                // width: "16.6%",
+                // height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
+                borderRadius: 16,
+                border: "1px solid grey",
+                padding: "0 15px 0 15px",
+                marginRight: 8,
+                fontSize: 13,
               }}
             >
               Closed
@@ -78,12 +99,17 @@ const Facebook = ({ activeTab }) => {
             <li
               onClick={() => setCardactive(5)}
               style={{
-                width: "16.6%",
-                height: "100%",
+                // width: "16.6%",
+                // height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
+                borderRadius: 16,
+                border: "1px solid grey",
+                padding: "0 15px 0 15px",
+                marginRight: 8,
+                fontSize: 13,
               }}
             >
               Pending
@@ -91,12 +117,20 @@ const Facebook = ({ activeTab }) => {
             <li
               onClick={() => setCardactive(6)}
               style={{
-                width: "16.6%",
-                height: "100%",
+                // width: "16.6%",
+                // height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
+                borderRadius: 16,
+                border: "1px solid #292961",
+                padding: "0 15px 0 15px",
+                marginRight: 8,
+                background: "#2929615e",
+                color: "#292961",
+                fontWeight: 600,
+                fontSize: 13,
               }}
             >
               All
@@ -140,21 +174,81 @@ const ListCardNew = ({ activeCard }) => {
             <div
               key={index}
               style={{
-                height: 150,
+                height: 145,
                 width: "25%",
-                padding: 5,
+                // padding: "5px ​30px 5px 5px",
+                paddingLeft: 5,
+                paddingRight: 30,
+                paddingTop: 5,
+                paddingBottom: 5,
                 boxSizing: "border-box",
+                position: "relative",
+                marginBottom: 10,
               }}
             >
+              {/* line */}
               <div
                 style={{
-                  background: "white",
+                  // width: "100%",
+                  background: "rgb(255, 255, 255)",
+                  position: "absolute",
+                  boxSizing: "border-box",
+                  // top: 5,
+                  bottom: 3,
+                  right: 29,
+                  height: 45,
+                  left: 5,
+                  borderBottomLeftRadius: 8,
+                  borderBottomRightRadius: 8,
+                }}
+              ></div>
+              <div
+                style={{
+                  position: "absolute",
+                  height: "100%",
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {/* left */}
+                <div
+                  style={{
+                    height: 35,
+                    width: 20,
+                    borderTopRightRadius: 100,
+                    borderBottomRightRadius: 100,
+                    background: "#fff",
+                    position: "absolute",
+                    left: -1,
+                    top: 29,
+                  }}
+                ></div>
+
+                {/* right */}
+                <div
+                  style={{
+                    height: 35,
+                    width: 20,
+                    borderTopLeftRadius: 100,
+                    borderBottomLeftRadius: 100,
+                    background: "#fff",
+                    position: "absolute",
+                    right: 34,
+                    top: 29,
+                  }}
+                ></div>
+              </div>
+              <div
+                style={{
+                  // background: "#d9d9d9",
+                  // background: "rgb(234 234 234)",
+                  background: "rgb(24 119 242)",
                   height: "100%",
                   width: "100%",
                   borderRadius: 8,
                   border: "1px solid #e5e2e2",
-                  boxShadow:
-                    "rgb(0 0 0 / 9%) 0px 4px 6px -10px, rgb(0 0 0 / 10%) 0px 2px 4px 0px",
+                  boxShadow: "rgb(0 0 0 / 12%) 0px 2px 6px 0px",
                 }}
               >
                 sasas

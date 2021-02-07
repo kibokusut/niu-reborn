@@ -3,7 +3,16 @@ import React from "react";
 const Dashboard = () => {
   return (
     <React.Fragment>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          flex: 1,
+          height: "100%",
+          background: "white",
+          // flexDirection: "column",
+        }}
+      >
         <div
           style={{
             width: "16.6%",
