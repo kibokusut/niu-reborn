@@ -1,6 +1,102 @@
 import React, { useState } from "react";
 import { Dummy } from "../../../data/listmenu";
-import { HiOutlineTicket } from "react-icons/hi";
+import styled from "styled-components";
+import { BsChatSquareDots } from "react-icons/bs";
+import {
+  FaFacebookSquare,
+  FaEllipsisV,
+  FaInfoCircle,
+  FaTicketAlt,
+  FaEye,
+} from "react-icons/fa";
+
+const TabTicket = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 0 15px 0 15px;
+  margin-right: 8px;
+  background: ${({ active }) => (active ? "#0572e7" : "transparent")};
+  color: ${({ active }) => (active ? "white" : "blak")};
+  font-weight: 400;
+  font-size: 13px;
+
+  &:hover {
+    background: #0572e7;
+    color: white;
+    border: 1px solid #0572e7;
+  }
+`;
+
+const WrapComment = styled.div`
+  font-size: 12px;
+  display: flex;
+  align-items: flex-end;
+  padding: 3px 7px;
+  box-sizing: border-box;
+  &:hover {
+    background: rgb(240 242 245);
+    border-radius: 3px;
+    padding: 3px 7px;
+    box-sizing: border-box;
+  }
+`;
+
+const WrapInfoSocialDetail = styled.div`
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* background: #d9d9d9; */
+  background: #f0f2f5;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const WrapInfoSocial = styled.div`
+  background: #f0f2f5;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.3s;
+
+  &:hover {
+    ${WrapInfoSocialDetail} {
+      visibility: visible;
+    }
+  }
+`;
+
+const Wrapcheck = styled.div`
+  visibility: ${({ show }) => (show ? "visible" : "hidden")};
+  position: absolute;
+  left: 0;
+  /* right: 0; */
+  width: 100px;
+  top: 0;
+  bottom: 0;
+  background: #fbfbfb;
+`;
+
+const CartTicket = styled.div`
+  background: #fbfbfb;
+  box-shadow: rgb(0 0 0 / 20%) 0px 1px 6px;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  &:hover {
+    ${Wrapcheck} {
+      visibility: visible;
+    }
+  }
+`;
 
 const Facebook = ({ activeTab }) => {
   const [cardActive, setCardactive] = useState(1);
@@ -13,137 +109,70 @@ const Facebook = ({ activeTab }) => {
       <section
         style={{ height: "100%", display: "flex", flexDirection: "column" }}
       >
-        <nav>
+        <nav
+          style={{
+            paddingLeft: 10,
+            background: "#ececf2",
+            boxSizing: "border-box",
+            borderRadius: 4,
+            marginTop: 5,
+            marginLeft: 10,
+            marginBottom: 10,
+          }}
+        >
           <ul
             style={{
               display: "flex",
               width: "100%",
-              // background: "pink",
-              // justifyContent: "space-around",
-              height: 35,
+              height: 30,
+              marginTop: 10,
+              marginBottom: 10,
             }}
           >
-            <li
+            <TabTicket
               onClick={() => setCardactive(1)}
-              style={{
-                // width: "16.6%",
-                // borderBottom: "4px solid red",
-                // height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                borderRadius: 16,
-                border: "1px solid grey",
-                padding: "0 15px 0 15px",
-                marginRight: 8,
-                fontSize: 13,
-              }}
+              active={cardActive === 1 ? cardActive : false}
             >
               New
-            </li>
-            <li
+            </TabTicket>
+            <TabTicket
               onClick={() => setCardactive(2)}
-              style={{
-                // width: "16.6%",
-                // height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                borderRadius: 16,
-                border: "1px solid grey",
-                padding: "0 15px 0 15px",
-                marginRight: 8,
-                fontSize: 13,
-              }}
+              active={cardActive === 2 ? cardActive : false}
             >
               Open
-            </li>
-            <li
+            </TabTicket>
+            <TabTicket
               onClick={() => setCardactive(3)}
-              style={{
-                // width: "16.6%",
-                // height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                borderRadius: 16,
-                border: "1px solid grey",
-                padding: "0 15px 0 15px",
-                marginRight: 8,
-                fontSize: 13,
-              }}
+              active={cardActive === 3 ? cardActive : false}
             >
               Progress
-            </li>
-            <li
+            </TabTicket>
+            <TabTicket
               onClick={() => setCardactive(4)}
-              style={{
-                // width: "16.6%",
-                // height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                borderRadius: 16,
-                border: "1px solid grey",
-                padding: "0 15px 0 15px",
-                marginRight: 8,
-                fontSize: 13,
-              }}
+              active={cardActive === 4 ? cardActive : false}
             >
               Closed
-            </li>
-            <li
+            </TabTicket>
+            <TabTicket
               onClick={() => setCardactive(5)}
-              style={{
-                // width: "16.6%",
-                // height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                borderRadius: 16,
-                border: "1px solid grey",
-                padding: "0 15px 0 15px",
-                marginRight: 8,
-                fontSize: 13,
-              }}
+              active={cardActive === 5 ? cardActive : false}
             >
               Pending
-            </li>
-            <li
+            </TabTicket>
+            <TabTicket
               onClick={() => setCardactive(6)}
-              style={{
-                // width: "16.6%",
-                // height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                borderRadius: 16,
-                border: "1px solid #292961",
-                padding: "0 15px 0 15px",
-                marginRight: 8,
-                background: "#2929615e",
-                color: "#292961",
-                fontWeight: 600,
-                fontSize: 13,
-              }}
+              active={cardActive === 6 ? cardActive : false}
             >
               All
-            </li>
+            </TabTicket>
           </ul>
         </nav>
+
         <div
           style={{
             flex: 1,
             display: "flex",
             width: "100%",
-            // background: "rgba(209,209,240,0.2)",
-            // background: "#f1f5f9",
             height: "100%",
             flexDirection: "column",
           }}
@@ -163,120 +192,228 @@ const Facebook = ({ activeTab }) => {
 export default Facebook;
 
 const ListCardNew = ({ activeCard }) => {
+  const [checkCards, setCheckCards] = useState(false);
+  const [count, setCount] = useState(0);
+  // const [checkCards, setCheckCards] = useState("");
   if (activeCard !== 1) {
     return null;
   }
   return (
     <React.Fragment>
+      <div style={{ padding: "0 10px", boxSizing: "border-box" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            paddingTop: 5,
+            paddingBottom: 5,
+            borderRadius: 4,
+            paddingLeft: 5,
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            style={{
+              marginRight: 15,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <input
+              style={{ height: 16, width: 16, cursor: "pointer" }}
+              type="checkbox"
+              id="all"
+            />
+            <label htmlFor="all">1 / 100 ticket dipilih</label>
+          </div>
+          <div style={{ marginRight: 15 }}>
+            <span style={{ marginRight: 5 }}>Akun</span>
+            <select
+              style={{
+                outline: "none",
+                borderRadius: 3,
+                border: "1px solid #e7e7e7",
+                padding: "5px 10px",
+                minWidth: 100,
+                cursor: "pointer",
+              }}
+              name=""
+              id=""
+            >
+              <option value="">sss</option>
+            </select>
+          </div>
+          <div style={{ marginRight: 15 }}>
+            <span style={{ marginRight: 5 }}>Categori</span>
+            <select
+              style={{
+                outline: "none",
+                borderRadius: 3,
+                border: "1px solid #e7e7e7",
+                padding: "5px 10px",
+                minWidth: 100,
+                cursor: "pointer",
+              }}
+              name=""
+              id=""
+            >
+              <option value="">sss</option>
+            </select>
+          </div>
+          <button
+            style={{
+              outline: "none",
+              borderRadius: 3,
+              border: "none",
+              padding: "6px 10px",
+              cursor: "pointer",
+              background: "#292961",
+              color: "white",
+            }}
+          >
+            Distibute Ticket
+          </button>
+        </div>
+      </div>
       <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
         {Dummy.map((nama, index) => {
           return (
             <div
               key={index}
               style={{
-                height: 145,
-                width: "25%",
-                // padding: "5px ​30px 5px 5px",
-                paddingLeft: 5,
-                paddingRight: 30,
-                paddingTop: 5,
-                paddingBottom: 5,
+                width: "33.3%",
+                padding: 10,
                 boxSizing: "border-box",
                 position: "relative",
-                marginBottom: 10,
               }}
             >
-              {/* line */}
-              <div
-                style={{
-                  // width: "100%",
-                  background: "rgb(255, 255, 255)",
-                  position: "absolute",
-                  boxSizing: "border-box",
-                  // top: 5,
-                  bottom: 3,
-                  right: 29,
-                  height: 45,
-                  left: 5,
-                  borderBottomLeftRadius: 8,
-                  borderBottomRightRadius: 8,
-                }}
-              ></div>
-              <div
-                style={{
-                  position: "absolute",
-                  height: "100%",
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                {/* left */}
-                <div
+              <CartTicket>
+                <section
                   style={{
-                    height: 35,
-                    width: 20,
-                    borderTopRightRadius: 100,
-                    borderBottomRightRadius: 100,
-                    background: "#fff",
-                    position: "absolute",
-                    left: -1,
-                    top: 29,
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: 10,
+                    position: "relative",
                   }}
-                ></div>
+                >
+                  <Wrapcheck show={checkCards}>
+                    <input
+                      name="list"
+                      onChange={(e) => {
+                        const { checked, type } = e.target;
 
-                {/* right */}
-                <div
+                        if (type === "checkbox" && checked === true) {
+                          setCount(count + 1);
+                        } else {
+                          setCount(count - 1);
+                        }
+
+                        console.log(count);
+                      }}
+                      style={{ height: 16, width: 16 }}
+                      type="checkbox"
+                    />
+                  </Wrapcheck>
+                  <div
+                    style={{
+                      fontSize: 10,
+                    }}
+                  >
+                    23 februari 2020
+                  </div>
+                  <div style={{ display: "flex" }}>
+                    <div
+                      style={{
+                        fontSize: 10,
+                        background: "#fceceb",
+                        color: "#e85347",
+                        padding: "4px 10px 4px 10px",
+                        borderRadius: 3,
+                        marginRight: 5,
+                      }}
+                    >
+                      information
+                    </div>
+                    <div>
+                      <FaEllipsisV />
+                    </div>
+                  </div>
+                </section>
+                <section
                   style={{
-                    height: 35,
-                    width: 20,
-                    borderTopLeftRadius: 100,
-                    borderBottomLeftRadius: 100,
-                    background: "#fff",
-                    position: "absolute",
-                    right: 34,
-                    top: 29,
+                    marginBottom: 10,
                   }}
-                ></div>
-              </div>
-              <div
-                style={{
-                  // background: "#d9d9d9",
-                  // background: "rgb(234 234 234)",
-                  background: "rgb(24 119 242)",
-                  height: "100%",
-                  width: "100%",
-                  borderRadius: 8,
-                  border: "1px solid #e5e2e2",
-                  boxShadow: "rgb(0 0 0 / 12%) 0px 2px 6px 0px",
-                }}
-              >
-                sasas
-              </div>
+                >
+                  <div style={{ display: "flex", alignItems: "flex-start" }}>
+                    <div style={{ height: 35, width: 35, marginRight: 5 }}>
+                      <img
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          objectFit: "cover",
+                          borderRadius: 4,
+                        }}
+                        src="https://dashlite.themenio.com/demo3/images/avatar/b-sm.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div style={{ width: "100%" }}>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontSize: 12,
+                          color: "#526484",
+                          marginBottom: 5,
+                          marginLeft: 2,
+                        }}
+                      >
+                        Jono
+                      </p>
+                      <WrapInfoSocial>
+                        <WrapInfoSocialDetail onClick={() => alert("ok")}>
+                          <FaEye style={{ marginRight: 5 }} /> detail
+                        </WrapInfoSocialDetail>
+                        <p
+                          style={{
+                            margin: 0,
+                            fontSize: 12,
+                            color: "black",
+                            fontWeight: 600,
+                            display: "flex",
+                          }}
+                        >
+                          <FaFacebookSquare
+                            color="#0572e7"
+                            size="15px"
+                            style={{ marginRight: 3 }}
+                          />
+                          Abinaya facebook
+                        </p>
+                        <p style={{ margin: 0, fontSize: 12, color: "black" }}>
+                          Lorem ipsum dolor sit amet,
+                        </p>
+                      </WrapInfoSocial>
+                    </div>
+                  </div>
+                </section>
+                <section style={{ display: "flex", alignItems: "center" }}>
+                  <div style={{ flex: 1 }}>
+                    <FaInfoCircle
+                      color="rgb(82, 100, 132)"
+                      style={{ marginRight: 5 }}
+                    />
+                    <FaTicketAlt color="rgb(82, 100, 132)" />
+                  </div>
+                  <WrapComment>
+                    <BsChatSquareDots />
+                    <span style={{ marginLeft: 4 }}>Comment</span>
+                  </WrapComment>
+                </section>
+              </CartTicket>
             </div>
           );
         })}
-
-        {/* <div
-          style={{
-            height: 150,
-            width: "25%",
-            padding: 5,
-            boxSizing: "border-box",
-          }}
-        >
-          <div
-            style={{
-              background: "white",
-              height: "100%",
-              width: "100%",
-              boxShadow:
-                "0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%)",
-            }}
-          >
-            sasas
-          </div>
-        </div> */}
       </div>
     </React.Fragment>
   );
